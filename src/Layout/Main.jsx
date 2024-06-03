@@ -1,8 +1,18 @@
+import { Outlet } from "react-router-dom";
+import Navbar from "../Components/Navbar/Navbar";
+import Footer from "../Components/Footer/Footer";
+
 const Main = () => {
     return (
-        <>
-        <h1 className="text-4xl font-slab text-green-700">Hello World!</h1>
-        </>
+        <div className="container  mx-auto">
+        <Navbar></Navbar>
+        <div className=" min-h-[calc(100vh-250px)] mt-20 " >
+            <Outlet ></Outlet>
+        </div>
+        <div className="mt-4 md:mt-6 lg:mt-12">
+            <Footer></Footer>
+        </div>
+    </div>
     );
 };
 
