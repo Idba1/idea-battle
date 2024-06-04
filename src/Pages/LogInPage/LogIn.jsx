@@ -71,7 +71,7 @@ const LogIn = () => {
                                 
                             </form>
                             <p className="mt-4 text-center text-sky-700 dark:text-sky-700">or sign in with</p>
-                            <p className="mt-6 text-sm text-center text-sky-700">Don't have an account yet? <Link to={"/register"} className="text-blue-500 focus:outline-none focus:underline hover:underline">Sign up</Link>.</p>
+                            <p className="mt-6 text-sm text-center text-sky-700">Do not have an account yet? <Link to={"/register"} className="text-blue-500 focus:outline-none focus:underline hover:underline">Sign up</Link>.</p>
                         </div>
                     </div>
                 </div>
