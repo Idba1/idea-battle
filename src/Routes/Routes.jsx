@@ -6,7 +6,6 @@ import LogIn from '../Pages/LogInPage/LogIn.jsx';
 import Register from '../Pages/RegisterPage/Register.jsx';
 import PopularContests from '../Pages/PopularContests/PopularContests.jsx';
 import ContestDetails from '../Pages/ContestDetails/ContestDetails.jsx';
-import PrivateRoute from './PrivateRoute/PrivateRoute.jsx';
 
 const Routes = createBrowserRouter([
   {
@@ -30,13 +29,7 @@ const Routes = createBrowserRouter([
         path: 'popular/contest',
         element: <PopularContests></PopularContests>,
       },
-      {
-        path: 'allcontest/:id',
-        element: <PrivateRoute>
-          <ContestDetails></ContestDetails>
-        </PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:9000/allcontest/${params.id}`)
-      },
+     
 
     ],
   },
