@@ -29,7 +29,11 @@ const Routes = createBrowserRouter([
         path: 'popular/contest',
         element: <PopularContests></PopularContests>,
       },
-     
+      {
+        path: 'allcontest/:id',
+        element:
+          <ContestDetails></ContestDetails>,
+      },
 
     ],
   },
