@@ -4,6 +4,7 @@ import ErrorPage from '../Pages/ErrorPage/ErrorPage.jsx';
 import Home from '../Components/Home/Home'
 import LogIn from '../Pages/LogInPage/LogIn.jsx';
 import Register from '../Pages/RegisterPage/Register.jsx';
+import PopularContests from '../Pages/PopularContests/PopularContests.jsx';
 
 const Routes = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const Routes = createBrowserRouter([
       {
         path: 'login',
         element: <LogIn></LogIn>,
+      },
+      {
+        path: 'popular/contest',
+        element: <PopularContests></PopularContests>,
       },
 
     ],
