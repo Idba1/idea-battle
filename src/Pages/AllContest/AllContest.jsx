@@ -35,7 +35,7 @@ const AllContest = () => {
             <div className="card-body">
               <h3>{contest.contestName}</h3>
               <p>Participants: {contest.participationCount ?? 0}</p>
-              <p>{contest.shortDescription ? contest.shortDescription.slice(0, 100) : 'No description available'}...</p>
+              <p>{contest.shortDescription ? contest.shortDescription.slice(0, 100) : 'click view details for read full job description'}...</p>
               <Link
                 to={`/allcontest/${contest._id}`}
                 className="px-5 py-2 mt-6 text-sm font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 lg:mx-0 lg:w-auto focus:outline-none"
