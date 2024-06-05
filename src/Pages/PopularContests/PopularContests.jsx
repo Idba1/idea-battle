@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const fetchPopularContests = async () => {
   const { data } = await axios.get('http://localhost:9000/contests/popular');
@@ -14,14 +14,7 @@ const PopularContests = () => {
   });
   const navigate = useNavigate();
 
-  const handleDetailsClick = (contestId) => {
-    const isLoggedIn = !!localStorage.getItem('token');
-    if (isLoggedIn) {
-      navigate(`/contest/${contestId}`);
-    } else {
-      navigate('/login');
-    }
-  };
+
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error fetching contests</div>;
@@ -45,9 +38,9 @@ const PopularContests = () => {
                 <h3>{contest.contestName}</h3>
                 <p>Participants: {contest.participationCount}</p>
                 <p>{contest.shortDescription.slice(0, 100)}...</p>
-                <button onClick={() => handleDetailsClick(contest._id)} className="px-5 py-2 mt-6 text-sm font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 lg:mx-0 lg:w-auto focus:outline-none">
+                <Link to={`/allcontest/${contest._id}`} className="px-5 py-2 mt-6 text-sm font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 lg:mx-0 lg:w-auto focus:outline-none">
                   View Details
-                </button>
+                </Link>
               </div>
             </div>
           </div>
