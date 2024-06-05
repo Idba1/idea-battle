@@ -6,6 +6,7 @@ import LogIn from '../Pages/LogInPage/LogIn.jsx';
 import Register from '../Pages/RegisterPage/Register.jsx';
 import PopularContests from '../Pages/PopularContests/PopularContests.jsx';
 import ContestDetails from '../Pages/ContestDetails/ContestDetails.jsx';
+import AllContest from '../Pages/AllContest/AllContest.jsx';
 
 const Routes = createBrowserRouter([
   {
@@ -34,7 +35,10 @@ const Routes = createBrowserRouter([
         element:
           <ContestDetails></ContestDetails>,
       },
-
+      {
+        path: 'all-contests',
+        element: <AllContest></AllContest>,
+      },
     ],
   },
 ])
