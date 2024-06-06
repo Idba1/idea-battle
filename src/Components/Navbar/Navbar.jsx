@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip'
 import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
@@ -107,6 +107,11 @@ const Navbar = () => {
                                                 <button
                                                     onClick={logout}
                                                     className="btn btn-sm  btn-ghost">Logout</button>
+
+                                            </li>
+                                            <li>
+                                                <Link to={'/dashboard'}
+                                                    className="btn btn-sm  btn-ghost">Dashboard</Link>
 
                                             </li>
                                         </ul>
