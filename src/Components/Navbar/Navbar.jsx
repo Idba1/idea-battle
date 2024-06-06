@@ -41,7 +41,7 @@ const Navbar = () => {
                                 isActive ? 'text-[#0077B5]' : theme === 'dark' ? 'text-[#FFFFFF]' : 'text-[#333333]'} to={"/"}>Home</NavLink>
 
                             <NavLink className={({ isActive }) =>
-                                isActive ? 'text-[#0077B5]' : theme === 'dark' ? 'text-[#FFFFFF]' : 'text-[#333333]'} to={"/alljob"}>ALL CONTEST</NavLink>
+                                isActive ? 'text-[#0077B5]' : theme === 'dark' ? 'text-[#FFFFFF]' : 'text-[#333333]'} to={"/all-contests"}>ALL CONTEST</NavLink>
                             {user && <NavLink className={({ isActive }) =>
                                 isActive ? 'text-[#0077B5]' : theme === 'dark' ? 'text-[#FFFFFF]' : 'text-[#333333]'} to="/applied-jobs">CREATE CONTEST</NavLink>}
 
@@ -65,7 +65,7 @@ const Navbar = () => {
                             to={"/"}>HOME</NavLink>
 
                         <NavLink className={({ isActive }) =>
-                            isActive ? 'text-[#0077B5]' : theme === 'dark' ? 'text-[#FFFFFF]' : 'text-[#333333]'} to={"/alljob"}>ALL CONTEST</NavLink>
+                            isActive ? 'text-[#0077B5]' : theme === 'dark' ? 'text-[#FFFFFF]' : 'text-[#333333]'} to={"/all-contests"}>ALL CONTEST</NavLink>
                         {user && <NavLink className={({ isActive }) =>
                             isActive ? 'text-[#0077B5]' : theme === 'dark' ? 'text-[#FFFFFF]' : 'text-[#333333]'} to="/applied-jobs">CREATE CONTEST</NavLink>}
 
