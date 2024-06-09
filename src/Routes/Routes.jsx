@@ -41,18 +41,19 @@ const Routes = createBrowserRouter([
         path: 'all-contests',
         element: <AllContest></AllContest>,
       },
-      {
-        path: 'admin-dashboard',
-        element: <AdminDashboard></AdminDashboard>,
-        children: [
-          {
-            path: 'home',
-            element: <Admin></Admin>
-          }
-        ]
-      }
+    
     ],
   },
+  {
+    path: 'admin-dashboard',
+    element: <AdminDashboard></AdminDashboard>,
+    children: [
+      {
+        path: 'home',
+        element: <Admin></Admin>
+      }
+    ]
+  }
 ])
 
 
