@@ -14,6 +14,9 @@ import CreatorDashboard from '../Layout/CreatorDashboard.jsx';
 import AddContest from '../Pages/Creator/AddContest/AddContest.jsx';
 import MyCreatedContest from '../Pages/Creator/MyCreatedContest/MyCreatedContest.jsx';
 import ContentSubmitted from '../Pages/Creator/ContentSubmited/ContentSubmitted.jsx';
+import Testimonials from '../Pages/Testimonials/Testimonials.jsx';
+import LeaderBoard from '../Pages/LeaderBoard/LeaderBoard.jsx';
+import Blogs from '../Pages/Blogs/Blogs.jsx';
 
 const Routes = createBrowserRouter([
   {
@@ -45,6 +48,18 @@ const Routes = createBrowserRouter([
       {
         path: 'all-contests',
         element: <AllContest></AllContest>,
+      },
+      {
+        path: 'testimonials',
+        element: <Testimonials></Testimonials>,
+      },
+      {
+        path: '/leader-board',
+        element: <LeaderBoard></LeaderBoard>,
+      },
+      {
+        path: '/blogs',
+        element: <Blogs></Blogs>,
       },
     
     ],

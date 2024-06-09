@@ -43,13 +43,10 @@ const Navbar = () => {
                             <NavLink className={({ isActive }) =>
                                 isActive ? 'text-[#0077B5]' : theme === 'dark' ? 'text-[#FFFFFF]' : 'text-[#333333]'} to={"/all-contests"}>ALL CONTEST</NavLink>
                             {user && <NavLink className={({ isActive }) =>
-                                isActive ? 'text-[#0077B5]' : theme === 'dark' ? 'text-[#FFFFFF]' : 'text-[#333333]'} to="/applied-jobs">CREATE CONTEST</NavLink>}
+                                isActive ? 'text-[#0077B5]' : theme === 'dark' ? 'text-[#FFFFFF]' : 'text-[#333333]'} to="/testimonials">TESTIMONIALS</NavLink>}
 
                             {user && <NavLink className={({ isActive }) =>
-                                isActive ? 'text-[#0077B5]' : theme === 'dark' ? 'text-[#FFFFFF]' : 'text-[#333333]'} to="/add-job">TESTIMONIALS</NavLink>}
-
-                            {user && <NavLink className={({ isActive }) =>
-                                isActive ? 'text-[#0077B5]' : theme === 'dark' ? 'text-[#FFFFFF]' : 'text-[#333333]'} to="/my-jobs">LEADER BOARD</NavLink>}
+                                isActive ? 'text-[#0077B5]' : theme === 'dark' ? 'text-[#FFFFFF]' : 'text-[#333333]'} to="/leader-board">LEADER BOARD</NavLink>}
 
                             <NavLink className={({ isActive }) =>
                                 isActive ? 'text-[#0077B5]' : theme === 'dark' ? 'text-[#FFFFFF]' : 'text-[#333333]'} to={"/blogs"}>BLOGS</NavLink>
@@ -67,13 +64,10 @@ const Navbar = () => {
                         <NavLink className={({ isActive }) =>
                             isActive ? 'text-[#0077B5]' : theme === 'dark' ? 'text-[#FFFFFF]' : 'text-[#333333]'} to={"/all-contests"}>ALL CONTEST</NavLink>
                         {user && <NavLink className={({ isActive }) =>
-                            isActive ? 'text-[#0077B5]' : theme === 'dark' ? 'text-[#FFFFFF]' : 'text-[#333333]'} to="/applied-jobs">CREATE CONTEST</NavLink>}
+                            isActive ? 'text-[#0077B5]' : theme === 'dark' ? 'text-[#FFFFFF]' : 'text-[#333333]'} to="/testimonials">TESTIMONIALS</NavLink>}
 
                         {user && <NavLink className={({ isActive }) =>
-                            isActive ? 'text-[#0077B5]' : theme === 'dark' ? 'text-[#FFFFFF]' : 'text-[#333333]'} to="/add-job">TESTIMONIALS</NavLink>}
-
-                        {user && <NavLink className={({ isActive }) =>
-                            isActive ? 'text-[#0077B5]' : theme === 'dark' ? 'text-[#FFFFFF]' : 'text-[#333333]'} to="/my-jobs">LEADER BOARD</NavLink>}
+                            isActive ? 'text-[#0077B5]' : theme === 'dark' ? 'text-[#FFFFFF]' : 'text-[#333333]'} to="/leader-board">LEADER BOARD</NavLink>}
 
                         <NavLink className={({ isActive }) =>
                             isActive ? 'text-[#0077B5]' : theme === 'dark' ? 'text-[#FFFFFF]' : 'text-[#333333]'} to={"/blogs"}>BLOGS</NavLink>
@@ -100,19 +94,22 @@ const Navbar = () => {
                                         </label>
                                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                                             <li>
-                                                <button className="btn btn-sm  btn-ghost">{user?.displayName || 'user'}</button>
-
-                                            </li>
-                                            <li>
-                                                <button
-                                                    onClick={logout}
-                                                    className="btn btn-sm  btn-ghost">Logout</button>
+                                                <Link to={'/'} className="btn btn-sm  btn-ghost">{user?.displayName || 'user'}</Link>
 
                                             </li>
                                             <li>
                                                 <Link to={'/admin-dashboard'}
-                                                    className="btn btn-sm  btn-ghost">Dashboard</Link>
-
+                                                    className="btn btn-sm  btn-ghost">Admin-Dashboard</Link>
+                                            </li>
+                                            <li>
+                                                <Link to={'/creator-dashboard'}
+                                                    className="btn btn-sm  btn-ghost">Creator-Dashboard</Link>
+                                            </li>
+                                            <li>
+                                                <button
+                                                    onClick={logout}
+                                                    className="btn btn-sm  btn-ghost">Logout
+                                                </button>
                                             </li>
                                         </ul>
                                     </div>
