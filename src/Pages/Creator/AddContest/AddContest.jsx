@@ -27,7 +27,7 @@ const AddContest = () => {
     formData.append('deadline', deadline);
 
     try {
-      await axios.post('http://localhost:9000/add-contest', formData);
+      await axios.post('https://ideabattle-server.vercel.app/add-contest', formData);
       alert('Contest added successfully');
     } catch (error) {
       console.error('Failed to add contest:', error);

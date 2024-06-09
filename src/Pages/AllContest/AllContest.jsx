@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 const fetchAllContests = async () => {
-  const { data } = await axios.get('http://localhost:9000/allcontest');
+  const { data } = await axios.get('https://ideabattle-server.vercel.app/allcontest');
   return data;
 };
 

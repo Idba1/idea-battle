@@ -12,9 +12,9 @@ const ContentSubmitted = () => {
     useEffect(() => {
         const fetchContestDetails = async () => {
             try {
-                const contestResponse = await axios.get(`http://localhost:9000/allcontest/`);
+                const contestResponse = await axios.get(`https://ideabattle-server.vercel.app/allcontest/`);
                 setContest(contestResponse.data);
-                const submissionsResponse = await axios.get(`http://localhost:9000/allcontest/`);
+                const submissionsResponse = await axios.get(`https://ideabattle-server.vercel.app/allcontest/`);
                 setSubmissions(submissionsResponse.data);
                 if (submissionsResponse.data.some(submission => submission.isWinner)) {
                     setWinnerDeclared(true);

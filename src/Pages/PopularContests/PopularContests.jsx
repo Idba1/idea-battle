@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 
 const fetchPopularContests = async () => {
-  const { data } = await axios.get('http://localhost:9000/contests/popular');
+  const { data } = await axios.get('https://ideabattle-server.vercel.app/contests/popular');
   return data;
 };
 

@@ -71,12 +71,12 @@ const Routes = createBrowserRouter([
       {
         path: 'manage-user',
         element: <ManageUser></ManageUser>,
-        loader: () => fetch('http://localhost:9000/users')
+        loader: () => fetch('https://ideabattle-server.vercel.app/users')
       },
       {
         path: 'manage-contest',
         element: <ManageContest></ManageContest>,
-        loader: () => fetch('http://localhost:9000/contests')
+        loader: () => fetch('https://ideabattle-server.vercel.app/contests')
       }
     ]
   },

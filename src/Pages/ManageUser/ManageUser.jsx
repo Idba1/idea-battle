@@ -10,7 +10,7 @@ const ManageUserPage = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:9000/users');
+      const response = await axios.get('https://ideabattle-server.vercel.app/users');
       setUsers(response.data);
     } catch (error) {
       console.error('Failed to fetch users:', error);
@@ -19,7 +19,7 @@ const ManageUserPage = () => {
 
   const handleRoleChange = async (userId, newRole) => {
     try {
-      await axios.put(`http://localhost:9000/users/${userId}/role`, { role: newRole });
+      await axios.put(`https://ideabattle-server.vercel.app/users/${userId}/role`, { role: newRole });
       fetchUsers();
     } catch (error) {
       console.error('Failed to update role:', error);
@@ -28,7 +28,7 @@ const ManageUserPage = () => {
 
   const handleStatusChange = async (userId, newStatus) => {
     try {
-      await axios.put(`http://localhost:9000/users/${userId}/status`, { status: newStatus });
+      await axios.put(`https://ideabattle-server.vercel.app/users/${userId}/status`, { status: newStatus });
       fetchUsers();
     } catch (error) {
       console.error('Failed to update status:', error);
@@ -37,7 +37,7 @@ const ManageUserPage = () => {
 
   const handleDeleteUser = async (userId) => {
     try {
-      await axios.delete(`http://localhost:9000/users/${userId}`);
+      await axios.delete(`https://ideabattle-server.vercel.app/users/${userId}`);
       fetchUsers();
     } catch (error) {
       console.error('Failed to delete user:', error);

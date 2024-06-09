@@ -72,7 +72,7 @@ const AuthProvider = ({ children }) => {
     // Save user to the backend database
     const saveUserToDatabase = async (user) => {
         try {
-            const response = await fetch('http://localhost:9000/users', {
+            const response = await fetch('https://ideabattle-server.vercel.app/users', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

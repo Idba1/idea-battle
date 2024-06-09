@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 
 const fetchContestDetails = async (id) => {
-    const { data } = await axios.get(`http://localhost:9000/allcontest/${id}`);
+    const { data } = await axios.get(`https://ideabattle-server.vercel.app/allcontest/${id}`);
     return data;
 };
 
@@ -26,7 +26,7 @@ const ContestDetails = () => {
         }
 
         try {
-            await axios.post('http://localhost:9000/register', { contestId: id, userId });
+            await axios.post('https://ideabattle-server.vercel.app/register', { contestId: id, userId });
             alert('Registration successful!');
             navigate(`/contest/${id}`);
         } catch (error) {

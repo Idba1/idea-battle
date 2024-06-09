@@ -14,7 +14,7 @@ const ManageContest = () => {
 
     const fetchContests = async () => {
         try {
-            const response = await axios.get('http://localhost:9000/allcontest');
+            const response = await axios.get('https://ideabattle-server.vercel.app/allcontest');
             setContests(response.data);
         } catch (error) {
             console.error('Failed to fetch contests:', error);
