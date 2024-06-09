@@ -1,4 +1,4 @@
-import { FaUsers } from "react-icons/fa";
+import { FaHome, FaUsers } from "react-icons/fa";
 import { MdEvent } from "react-icons/md";
 import { NavLink, Outlet } from "react-router-dom";
 
@@ -9,6 +9,11 @@ const AdminDashboard = () => {
             {/* dashboard side bar */}
             <div className="w-64 min-h-screen bg-sky-900 text-white">
                 <ul className="menu p-4 text-xl">
+                    <li>
+                        <NavLink to="/">
+                        <FaHome/>
+                            Home</NavLink>
+                    </li>
                     <li>
                         <NavLink to="/admin-dashboard/manage-contest">
                         <MdEvent />
