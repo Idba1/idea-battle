@@ -1,67 +1,110 @@
-import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, } from 'firebase/auth';
-import PropTypes from 'prop-types'
+// src/context/AuthProvider.js
+import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
+import PropTypes from 'prop-types';
 import { createContext, useEffect, useState } from 'react';
 import auth from '../../Firebase/firebaseConfig';
-export const AuthContext = createContext(null)
 
+export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
-
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-    // console.log(user);
     const googleProvider = new GoogleAuthProvider();
 
-    // create user
-    const createUser = (email, password) => {
+    // Create user
+    const createUser = async (email, password) => {
         setLoading(true);
-        return createUserWithEmailAndPassword(auth, email, password);
+        try {
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+            await saveUserToDatabase(user);
+            return user;
+        } catch (error) {
+            setLoading(false);
+            throw error;
+        }
     };
 
-
-    // sign in user
-    const signInUser = (email, password) => {
+    // Sign in user
+    const signInUser = async (email, password) => {
         setLoading(true);
-        return signInWithEmailAndPassword(auth, email, password);
+        try {
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+            await saveUserToDatabase(user);
+            return user;
+        } catch (error) {
+            setLoading(false);
+            throw error;
+        }
     };
 
-    // google
-    const googleLogin = () => {
+    // Google login
+    const googleLogin = async () => {
         setLoading(true);
-        return signInWithPopup(auth, googleProvider);
+        try {
+            const userCredential = await signInWithPopup(auth, googleProvider);
+            const user = userCredential.user;
+            await saveUserToDatabase(user);
+            return user;
+        } catch (error) {
+            setLoading(false);
+            throw error;
+        }
     };
 
-
-    //logout
-    const logout = () => {
+    // Logout
+    const logout = async () => {
         setUser(null);
-        signOut(auth);
+        await signOut(auth);
     };
 
-    // ovserver
+    // Observer
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setUser(user);
-                setLoading(false);
-            }
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            setUser(user);
+            setLoading(false);
         });
+
+        return () => unsubscribe();
     }, []);
+
+    // Save user to the backend database
+    const saveUserToDatabase = async (user) => {
+        try {
+            const response = await fetch('http://localhost:9000/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    uid: user.uid,
+                    email: user.email,
+                    displayName: user.displayName,
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to save user to database');
+            }
+        } catch (error) {
+            console.error('Error saving user to database:', error);
+        }
+    };
 
     const allvalues = {
         createUser, signInUser, googleLogin, user, loading, logout
-
     };
+
     return (
-        <div>
-            <AuthContext.Provider value={allvalues}>
-                {children}
-            </AuthContext.Provider>
-        </div>
+        <AuthContext.Provider value={allvalues}>
+            {children}
+        </AuthContext.Provider>
     );
 };
+
 AuthProvider.propTypes = {
-    children: PropTypes.object.isRequired,
-}
+    children: PropTypes.node.isRequired,
+};
 
 export default AuthProvider;
