@@ -7,6 +7,8 @@ import Register from '../Pages/RegisterPage/Register.jsx';
 import PopularContests from '../Pages/PopularContests/PopularContests.jsx';
 import ContestDetails from '../Pages/ContestDetails/ContestDetails.jsx';
 import AllContest from '../Pages/AllContest/AllContest.jsx';
+import AdminDashboard from '../Layout/AdminDashboard.jsx';
+import Admin from '../Components/Admin/Admin.jsx';
 
 const Routes = createBrowserRouter([
   {
@@ -39,6 +41,16 @@ const Routes = createBrowserRouter([
         path: 'all-contests',
         element: <AllContest></AllContest>,
       },
+      {
+        path: 'admin-dashboard',
+        element: <AdminDashboard></AdminDashboard>,
+        children: [
+          {
+            path: 'home',
+            element: <Admin></Admin>
+          }
+        ]
+      }
     ],
   },
 ])

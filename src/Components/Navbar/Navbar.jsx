@@ -110,7 +110,7 @@ const Navbar = () => {
 
                                             </li>
                                             <li>
-                                                <Link to={'/dashboard'}
+                                                <Link to={'/admin-dashboard'}
                                                     className="btn btn-sm  btn-ghost">Dashboard</Link>
 
                                             </li>
