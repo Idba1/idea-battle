@@ -9,6 +9,7 @@ import ContestDetails from '../Pages/ContestDetails/ContestDetails.jsx';
 import AllContest from '../Pages/AllContest/AllContest.jsx';
 import AdminDashboard from '../Layout/AdminDashboard.jsx';
 import Admin from '../Components/Admin/Admin.jsx';
+import ManageUser from '../Pages/ManageUser/ManageUser.jsx';
 
 const Routes = createBrowserRouter([
   {
@@ -49,8 +50,9 @@ const Routes = createBrowserRouter([
     element: <AdminDashboard></AdminDashboard>,
     children: [
       {
-        path: 'home',
-        element: <Admin></Admin>
+        path: 'manage-user',
+        element: <ManageUser></ManageUser>,
+        loader: () => fetch('http://localhost:9000/users')
       }
     ]
   }
