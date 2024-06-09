@@ -45,24 +45,23 @@ const ManageUserPage = () => {
   };
 
   return (
-    <div>
-      <h1>Manage Users</h1>
-      <table>
+    <div className='overflow-auto w-full'>
+      <table className='border-collapse w-full'>
         <thead>
-          <tr>
-            <th>Email</th>
-            <th>Name</th>
-            <th>Role</th>
-            <th>Status</th>
-            <th>Actions</th>
+          <tr className='p-2 border border-gray-500'>
+            <th className='p-2 border border-gray-500'>Email</th>
+            <th className='p-2 border border-gray-500'>Name</th>
+            <th className='p-2 border border-gray-500'>Role</th>
+            <th className='p-2 border border-gray-500'>Status</th>
+            <th className='p-2 border border-gray-500'>Actions</th>
           </tr>
         </thead>
         <tbody>
           {users.map(user => (
-            <tr key={user._id}>
-              <td>{user.email}</td>
-              <td>{user.username}</td>
-              <td>
+            <tr className='p-2 border border-gray-500' key={user._id}>
+              <td className='p-2 border border-gray-500'>{user.email}</td>
+              <td className='p-2 border border-gray-500'>{user.username}</td>
+              <td className='p-2 border border-gray-500'>
                 <select
                   value={user.role}
                   onChange={(e) => handleRoleChange(user._id, e.target.value)}
@@ -72,7 +71,7 @@ const ManageUserPage = () => {
                   <option value="user">User</option>
                 </select>
               </td>
-              <td>
+              <td className='p-2 border border-gray-500'>
                 <select
                   value={user.status}
                   onChange={(e) => handleStatusChange(user._id, e.target.value)}
@@ -81,8 +80,8 @@ const ManageUserPage = () => {
                   <option value="blocked">Blocked</option>
                 </select>
               </td>
-              <td>
-                <button onClick={() => handleDeleteUser(user._id)}>Delete</button>
+              <td className='p-2 border border-gray-500'>
+                <button className='btn' onClick={() => handleDeleteUser(user._id)}>Delete</button>
               </td>
             </tr>
           ))}
