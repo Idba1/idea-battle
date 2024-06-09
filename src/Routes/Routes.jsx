@@ -8,9 +8,12 @@ import PopularContests from '../Pages/PopularContests/PopularContests.jsx';
 import ContestDetails from '../Pages/ContestDetails/ContestDetails.jsx';
 import AllContest from '../Pages/AllContest/AllContest.jsx';
 import AdminDashboard from '../Layout/AdminDashboard.jsx';
-import Admin from '../Components/Admin/Admin.jsx';
 import ManageUser from '../Pages/ManageUser/ManageUser.jsx';
 import ManageContest from '../Pages/ManageContest/ManageContest.jsx';
+import CreatorDashboard from '../Layout/CreatorDashboard.jsx';
+import AddContest from '../Pages/Creator/AddContest/AddContest.jsx';
+import MyCreatedContest from '../Pages/Creator/MyCreatedContest/MyCreatedContest.jsx';
+import ContentSubmitted from '../Pages/Creator/ContentSubmited/ContentSubmitted.jsx';
 
 const Routes = createBrowserRouter([
   {
@@ -61,7 +64,25 @@ const Routes = createBrowserRouter([
         loader: () => fetch('http://localhost:9000/contests')
       }
     ]
-  }
+  },
+  {
+    path: 'creator-dashboard',
+    element: <CreatorDashboard></CreatorDashboard>,
+    children: [
+      {
+        path: 'add-contest',
+        element: <AddContest></AddContest>
+      },
+      {
+        path: 'my-created-contest',
+        element: <MyCreatedContest></MyCreatedContest>,
+      },
+      {
+        path: 'contest-submitted',
+        element: <ContentSubmitted></ContentSubmitted>,
+      }
+    ]
+  },
 ])
 
 
