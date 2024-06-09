@@ -10,6 +10,7 @@ import AllContest from '../Pages/AllContest/AllContest.jsx';
 import AdminDashboard from '../Layout/AdminDashboard.jsx';
 import Admin from '../Components/Admin/Admin.jsx';
 import ManageUser from '../Pages/ManageUser/ManageUser.jsx';
+import ManageContest from '../Pages/ManageContest/ManageContest.jsx';
 
 const Routes = createBrowserRouter([
   {
@@ -53,6 +54,11 @@ const Routes = createBrowserRouter([
         path: 'manage-user',
         element: <ManageUser></ManageUser>,
         loader: () => fetch('http://localhost:9000/users')
+      },
+      {
+        path: 'manage-contest',
+        element: <ManageContest></ManageContest>,
+        loader: () => fetch('http://localhost:9000/contests')
       }
     ]
   }
