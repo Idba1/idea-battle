@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 const ErrorPage = () => {
     return (
@@ -14,7 +15,9 @@ const ErrorPage = () => {
             </p>
   
             <div className='flex items-center mt-6 gap-x-3'>
-             
+              <Link to={"/"} className='btn px-8 py-2.5 leading-5 text-white transition-colors duration-300 transhtmlForm bg-sky-600 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600'>
+                Take me home
+              </Link>
             </div>
           </div>
   
@@ -30,4 +33,4 @@ const ErrorPage = () => {
     )
   }
   
-  export default ErrorPage
+  export default ErrorPage;
