@@ -12,7 +12,8 @@ const PopularContests = () => {
     queryKey: ['popularContests'],
     queryFn: fetchPopularContests
   });
-  const navigate = useNavigate();
+  const 
+  navigate = useNavigate();
   console.log(contests);
 
   if (isLoading) return <div>Loading...</div>;

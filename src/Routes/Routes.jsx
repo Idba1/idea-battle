@@ -19,6 +19,10 @@ import LeaderBoard from '../Pages/LeaderBoard/LeaderBoard.jsx';
 import Blogs from '../Pages/Blogs/Blogs.jsx';
 import PrivateRoute from './PrivateRoute/PrivateRoute.jsx';
 import AdvertisementSection from '../Pages/AdvertisementSection/AdvertisementSection.jsx';
+import UserDashboard from '../Layout/UserDashboard.jsx';
+import MyParticipatedContest from '../Pages/MyParticipatedContest/MyParticipatedContest.jsx';
+import MyWinningContest from '../Pages/MyWinningContest/MyWinningContest.jsx';
+import MyProfile from '../Pages/MyProfile/MyProfile.jsx';
 
 const Routes = createBrowserRouter([
   {
@@ -108,6 +112,24 @@ const Routes = createBrowserRouter([
         path: 'contest-submitted',
         element: <ContentSubmitted></ContentSubmitted>,
       }
+    ]
+  },
+  {
+    path: 'user-dashboard',
+    element: <UserDashboard></UserDashboard>,
+    children: [
+      {
+        path: 'my-participated-contest',
+        element: <MyParticipatedContest></MyParticipatedContest>,
+      },
+      {
+        path: 'my-winning-contest',
+        element: <MyWinningContest></MyWinningContest>,
+      },
+      {
+        path: 'my-profile',
+        element: <MyProfile></MyProfile>,
+      },
     ]
   },
 ])

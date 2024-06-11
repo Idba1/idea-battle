@@ -94,8 +94,12 @@ const Navbar = () => {
                                         </label>
                                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                                             <li>
-                                                <Link to={'/'} className="btn btn-sm  btn-ghost">{user?.displayName || 'user'}</Link>
+                                                <Link to={'/'} className="btn btn-sm  btn-ghost">{user?.displayName || 'user name'}</Link>
 
+                                            </li>
+                                            <li>
+                                                <Link to={'/user-dashboard'}
+                                                    className="btn btn-sm  btn-ghost">User-Dashboard</Link>
                                             </li>
                                             <li>
                                                 <Link to={'/admin-dashboard'}
