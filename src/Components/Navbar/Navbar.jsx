@@ -50,6 +50,8 @@ const Navbar = () => {
 
                             <NavLink className={({ isActive }) =>
                                 isActive ? 'text-[#0077B5]' : theme === 'dark' ? 'text-[#FFFFFF]' : 'text-[#333333]'} to={"/blogs"}>BLOGS</NavLink>
+                            <NavLink className={({ isActive }) =>
+                                isActive ? 'text-[#0077B5]' : theme === 'dark' ? 'text-[#FFFFFF]' : 'text-[#333333]'} to={"/club"}>CLUB</NavLink>
 
                         </ul>
                     </div>
@@ -71,6 +73,8 @@ const Navbar = () => {
 
                         <NavLink className={({ isActive }) =>
                             isActive ? 'text-[#0077B5]' : theme === 'dark' ? 'text-[#FFFFFF]' : 'text-[#333333]'} to={"/blogs"}>BLOGS</NavLink>
+                        <NavLink className={({ isActive }) =>
+                            isActive ? 'text-[#0077B5]' : theme === 'dark' ? 'text-[#FFFFFF]' : 'text-[#333333]'} to={"/club"}>CLUB</NavLink>
 
                     </ul>
                 </div>

@@ -23,6 +23,7 @@ import UserDashboard from '../Layout/UserDashboard.jsx';
 import MyParticipatedContest from '../Pages/MyParticipatedContest/MyParticipatedContest.jsx';
 import MyWinningContest from '../Pages/MyWinningContest/MyWinningContest.jsx';
 import MyProfile from '../Pages/MyProfile/MyProfile.jsx';
+import Club from '../Pages/Clubs/Club.jsx';
 
 const Routes = createBrowserRouter([
   {
@@ -77,6 +78,10 @@ const Routes = createBrowserRouter([
         path: '/advertisement',
         element: <AdvertisementSection></AdvertisementSection>,
       },
+      {
+        path: '/club',
+        element: <Club></Club>,
+      },
     ],
   },
   {
@@ -129,6 +134,7 @@ const Routes = createBrowserRouter([
         path: 'my-profile',
         element: <MyProfile></MyProfile>,
       },
+     
     ]
   },
 ])

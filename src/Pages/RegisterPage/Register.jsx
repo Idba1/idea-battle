@@ -123,7 +123,7 @@ const Register = () => {
 
                             <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2">
                                 <div>
-                                    <label className="block mb-2 text-sm text-sky-950 dark:text-sky-950">Name</label>
+                                    <label className="block mb-2 text-sm text-sky-950 dark:text-sky-950">Full Name</label>
                                     <input type="text" name="username" id="username" placeholder="your name" className="block w-full px-5 py-3 mt-2 text-sky-950 placeholder-gray-950 bg-white border border-gray-950 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-sky-300 dark:border-gray-700 focus:border-blue-950 dark:focus:border-blue-950 focus:ring-blue-950 focus:outline-none focus:ring focus:ring-opacity-40"  {...register("FullName", { required: true })}
                                     />
                                     {errors.FullName && (
