@@ -7,3 +7,8 @@ base = "/"
 from = "/*"
 to = "/index.html"
 status = 200
+
+[[redirects]]
+from = "/en/*"
+to = "/src/Pages/ErrorPage/ErrorPage.jsx"
+status = 404
