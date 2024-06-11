@@ -17,6 +17,7 @@ import ContentSubmitted from '../Pages/Creator/ContentSubmited/ContentSubmitted.
 import Testimonials from '../Pages/Testimonials/Testimonials.jsx';
 import LeaderBoard from '../Pages/LeaderBoard/LeaderBoard.jsx';
 import Blogs from '../Pages/Blogs/Blogs.jsx';
+import PrivateRoute from './PrivateRoute/PrivateRoute.jsx';
 
 const Routes = createBrowserRouter([
   {
@@ -43,7 +44,9 @@ const Routes = createBrowserRouter([
       {
         path: 'allcontest/:id',
         element:
-          <ContestDetails></ContestDetails>,
+        <PrivateRoute>
+            <ContestDetails></ContestDetails>
+        </PrivateRoute>,
       },
       {
         path: 'all-contests',
@@ -51,11 +54,15 @@ const Routes = createBrowserRouter([
       },
       {
         path: 'testimonials',
-        element: <Testimonials></Testimonials>,
+        element: <PrivateRoute>
+          <Testimonials></Testimonials>
+        </PrivateRoute>,
       },
       {
         path: '/leader-board',
-        element: <LeaderBoard></LeaderBoard>,
+        element: <PrivateRoute>
+          <LeaderBoard></LeaderBoard>
+        </PrivateRoute>,
       },
       {
         path: '/blogs',

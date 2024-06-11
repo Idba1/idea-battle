@@ -18,10 +18,10 @@ const ContestDetails = () => {
     });
 
     const handleRegister = async () => {
-        const userId = localStorage.getItem('userId'); // Assume user ID is stored in local storage after login
+        const userId = localStorage.getItem('userId'); 
         if (!userId) {
             alert('Please log in to register for the contest.');
-            navigate('/login'); // Redirect to login page if user is not logged in
+            navigate('/login'); 
             return;
         }
 
