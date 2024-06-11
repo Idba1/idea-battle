@@ -18,6 +18,7 @@ import Testimonials from '../Pages/Testimonials/Testimonials.jsx';
 import LeaderBoard from '../Pages/LeaderBoard/LeaderBoard.jsx';
 import Blogs from '../Pages/Blogs/Blogs.jsx';
 import PrivateRoute from './PrivateRoute/PrivateRoute.jsx';
+import AdvertisementSection from '../Pages/AdvertisementSection/AdvertisementSection.jsx';
 
 const Routes = createBrowserRouter([
   {
@@ -67,6 +68,10 @@ const Routes = createBrowserRouter([
       {
         path: '/blogs',
         element: <Blogs></Blogs>,
+      },
+      {
+        path: '/advertisement',
+        element: <AdvertisementSection></AdvertisementSection>,
       },
     
     ],
