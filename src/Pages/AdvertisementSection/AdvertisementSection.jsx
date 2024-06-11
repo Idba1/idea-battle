@@ -10,7 +10,7 @@ const AdvertisementSection = () => {
   const totalWinners = 45;
 
   return (
-    <div className="p-6 bg-sky-100 text-gray-800 rounded-lg shadow-lg mt-6">
+    <div className="p-6 bg-sky-100 text-sky-800 rounded-lg shadow-lg mt-6">
       <div className="text-center mb-4">
         <h2 className="text-3xl font-bold">Join Our Competitions!</h2>
         <p className="text-lg mt-2">Participate, Win, and Be Recognized!</p>
