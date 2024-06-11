@@ -98,15 +98,15 @@ const Navbar = () => {
 
                                             </li>
                                             <li>
-                                                <Link to={'/user-dashboard'}
+                                                <Link to={'/user-dashboard/my-profile'}
                                                     className="btn btn-sm  btn-ghost">User-Dashboard</Link>
                                             </li>
                                             <li>
-                                                <Link to={'/admin-dashboard'}
+                                                <Link to={'/admin-dashboard/manage-user'}
                                                     className="btn btn-sm  btn-ghost">Admin-Dashboard</Link>
                                             </li>
                                             <li>
-                                                <Link to={'/creator-dashboard'}
+                                                <Link to={'/creator-dashboard/add-contest'}
                                                     className="btn btn-sm  btn-ghost">Creator-Dashboard</Link>
                                             </li>
                                             <li>
