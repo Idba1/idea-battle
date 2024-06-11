@@ -77,7 +77,6 @@ const Routes = createBrowserRouter([
         path: '/advertisement',
         element: <AdvertisementSection></AdvertisementSection>,
       },
-    
     ],
   },
   {
@@ -116,7 +115,7 @@ const Routes = createBrowserRouter([
   },
   {
     path: 'user-dashboard',
-    element: <UserDashboard></UserDashboard>,
+    element: <PrivateRoute><UserDashboard></UserDashboard></PrivateRoute>,
     children: [
       {
         path: 'my-participated-contest',

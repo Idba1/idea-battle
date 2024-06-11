@@ -123,7 +123,7 @@ const Navbar = () => {
                                 </Tooltip>
                             </div>
                                 :
-                                <NavLink className="btn text-white  lg:font-bold bg-[#0E46A3]" to={"/login"}>LogIn</NavLink>
+                                <NavLink className="btn text-white  lg:font-bold bg-[#0E46A3]" to={"/register"}>SignUp</NavLink>
                         }
                         {/* {
                             user ? <div>
