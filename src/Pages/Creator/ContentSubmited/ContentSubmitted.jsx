@@ -7,7 +7,7 @@ const ContestSubmissions = () => {
 
   useEffect(() => {
     const fetchSubmissions = async () => {
-      const { data } = await axios.get(`http://localhost:9000/submissions/${selectedContestId}`);
+      const { data } = await axios.get(`https://ideabattle-server.vercel.app/submissions/${selectedContestId}`);
       setSubmissions(data);
     };
     if (selectedContestId) {
@@ -17,7 +17,7 @@ const ContestSubmissions = () => {
 
   const handleDeclareWinner = async (submissionId) => {
     try {
-      await axios.put(`http://localhost:9000/declare-winner/${submissionId}`, { contestId: selectedContestId });
+      await axios.put(`https://ideabattle-server.vercel.app/declare-winner/${submissionId}`, { contestId: selectedContestId });
       setSubmissions(submissions.map((sub) => ({
         ...sub,
         isWinner: sub._id === submissionId ? true : false,

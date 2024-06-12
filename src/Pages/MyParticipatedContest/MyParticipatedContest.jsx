@@ -8,7 +8,7 @@ const MyParticipatedContest = () => {
   useEffect(() => {
     const fetchContests = async () => {
       try {
-        const response = await axios.get('http://localhost:9000/user/participated-contests');
+        const response = await axios.get('https://ideabattle-server.vercel.app/user/participated-contests');
         setContests(response.data);
         setSortedContests(response.data);
       } catch (error) {

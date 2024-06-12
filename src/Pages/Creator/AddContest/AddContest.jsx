@@ -27,7 +27,7 @@ const AddContest = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:9000/add-contest', contest);
+      await axios.post('https://ideabattle-server.vercel.app/add-contest', contest);
       alert('Contest added successfully!');
     } catch (error) {
       console.error(error);

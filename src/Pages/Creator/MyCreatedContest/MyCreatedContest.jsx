@@ -8,7 +8,7 @@ const MyCreatedContests = () => {
 
     useEffect(() => {
         const fetchContests = async () => {
-            const { data } = await axios.get(`http://localhost:9000/my-contests/${user?.email}`); // replace creatorId with actual id
+            const { data } = await axios.get(`https://ideabattle-server.vercel.app/my-contests/${user?.email}`); // replace creatorId with actual id
             setContests(data);
         };
         fetchContests();
@@ -16,7 +16,7 @@ const MyCreatedContests = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:9000/contest/${id}`);
+            await axios.delete(`https://ideabattle-server.vercel.app/contest/${id}`);
             setContests(contests.filter((contest) => contest._id !== id));
         } catch (error) {
             console.error(error);
