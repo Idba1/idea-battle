@@ -1,57 +1,57 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
+import { AuthContext } from '../../../Provider/AuthProvider/AuthProvider';
 
-const MyCreatedContest = () => {
+const MyCreatedContests = () => {
+    const { user } = useContext(AuthContext)
     const [contests, setContests] = useState([]);
-    const userId = 'currentUserId';
 
     useEffect(() => {
         const fetchContests = async () => {
-            try {
-                const response = await axios.get(`https://ideabattle-server.vercel.app/allcontest`);
-                setContests(response.data);
-            } catch (error) {
-                console.error('Failed to fetch contests', error);
-            }
+            const { data } = await axios.get(`http://localhost:9000/my-contests/${user?.email}`); // replace creatorId with actual id
+            setContests(data);
         };
-
         fetchContests();
-    }, [userId]);
+    }, [user?.email]);
 
-
+    const handleDelete = async (id) => {
+        try {
+            await axios.delete(`http://localhost:9000/contest/${id}`);
+            setContests(contests.filter((contest) => contest._id !== id));
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     return (
-        <div className='overflow-auto w-full p-4'>
-            <table className="table-auto w-full">
-                <thead>
-                    <tr>
-                        <th className='p-2 border border-gray-500'>Contest Name</th>
-                        <th className='p-2 border border-gray-500'>Status</th>
-                        <th className='p-2 border border-gray-500'>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {contests.map((contest) => (
-                        <tr key={contest._id}>
-                            <td className='p-2 border border-gray-500'>{contest.contestName}</td>
-                            <td className='p-2 border border-gray-500'>{contest.status}</td>
-                            <td className='p-2 border border-gray-500'>
-                                {contest.status === 'pending' ? (
-                                    <>
-                                        <button className="btn btn-sm btn-primary mr-2">Edit</button>
-                                        <button className="btn btn-sm btn-danger">Delete</button>
-                                    </>
-                                ) : (
-                                    <button className="btn btn-sm btn-secondary mr-2" disabled>Edit</button>
-                                )}
-                                <button className="btn btn-sm btn-info">See Submissions</button>
-                            </td>
+        <div className="my-created-contests">
+            <h2>My Created Contests</h2>
+            <div className='overflow-auto w-full p-4'>
+                <table className="table-auto w-full">
+                    <thead>
+                        <tr>
+                            <th className='p-2 border border-gray-500'>Contest Name</th>
+                            <th className='p-2 border border-gray-500'>Status</th>
+                            <th className='p-2 border border-gray-500'>Actions</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {contests.map((contest) => (
+                            <tr key={contest._id}>
+                                <td className='p-2 border border-gray-500'>{contest.name}</td>
+                                <td className='p-2 border border-gray-500'>{contest.status}</td>
+                                <td className='p-2 border border-gray-500'>
+                                    <button className="btn btn-sm btn-danger" onClick={() => handleDelete(contest._id)}>Delete</button>
+                                    <button className="btn btn-sm btn-primary mr-2">Edit</button>
+                                    <button>See Submissions</button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };
 
-export default MyCreatedContest;
+export default MyCreatedContests;

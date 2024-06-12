@@ -1,121 +1,64 @@
 import { useState } from 'react';
+import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import axios from 'axios';
-
-
 
 const AddContest = () => {
-  const [contestName, setContestName] = useState('');
-  const [image, setImage] = useState(null);
-  const [description, setDescription] = useState('');
-  const [price, setPrice] = useState('');
-  const [prizeMoney, setPrizeMoney] = useState('');
-  const [submissionInstruction, setSubmissionInstruction] = useState('');
-  const [deadline, setDeadline] = useState(new Date());
+  const [contest, setContest] = useState({
+    name: '',
+    image: '',
+    description: '',
+    price: '',
+    prizeMoney: '',
+    taskSubmission: '',
+    type: '',
+    deadline: new Date(),
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setContest((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleDateChange = (date) => {
+    setContest((prev) => ({ ...prev, deadline: date }));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const formData = new FormData();
-    formData.append('contestName', contestName);
-    formData.append('image', image);
-    formData.append('description', description);
-    formData.append('price', price);
-    formData.append('prizeMoney', prizeMoney);
-    formData.append('submissionInstruction', submissionInstruction);
-    formData.append('deadline', deadline);
-
     try {
-      await axios.post('https://ideabattle-server.vercel.app/add-contest', formData);
-      alert('Contest added successfully');
+      await axios.post('http://localhost:9000/add-contest', contest);
+      alert('Contest added successfully!');
     } catch (error) {
-      console.error('Failed to add contest:', error);
-      alert('Failed to add contest');
+      console.error(error);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="p-4 max-w-lg mx-auto bg-white shadow-md rounded-md">
+    <div className="add-contest">
       <h2 className="text-2xl font-bold mb-4">Add Contest</h2>
-
-      <label className="block mb-2">
-        Contest Name
-        <input
-          type="text"
-          value={contestName}
-          onChange={(e) => setContestName(e.target.value)}
-          className="input input-bordered w-full mt-1"
-          required
-        />
-      </label>
-
-      <label className="block mb-2">
-        Image
-        <input
-          type="file"
-          onChange={(e) => setImage(e.target.files[0])}
-          className="input input-bordered w-full mt-1"
-          required
-        />
-      </label>
-
-      <label className="block mb-2">
-        Contest Description
-        <textarea
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          className="textarea textarea-bordered w-full mt-1"
-          required
-        ></textarea>
-      </label>
-
-      <label className="block mb-2">
-        Contest Price
-        <input
-          type="number"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-          className="input input-bordered w-full mt-1"
-          required
-        />
-      </label>
-
-      <label className="block mb-2">
-        Prize Money or Others
-        <input
-          type="text"
-          value={prizeMoney}
-          onChange={(e) => setPrizeMoney(e.target.value)}
-          className="input input-bordered w-full mt-1"
-          required
-        />
-      </label>
-
-      <label className="block mb-2">
-        Task Submission Instruction
-        <textarea
-          value={submissionInstruction}
-          onChange={(e) => setSubmissionInstruction(e.target.value)}
-          className="textarea textarea-bordered w-full mt-1"
-          required
-        ></textarea>
-      </label>
-
-
-
-      <label className="block mb-4">
-        Contest Deadline
-        <DatePicker
-          selected={deadline}
-          onChange={(date) => setDeadline(date)}
-          className="input input-bordered w-full mt-1"
-          required
-        />
-      </label>
-
-      <button type="submit" className="btn btn-primary w-full">Add Contest</button>
-    </form>
+      <form onSubmit={handleSubmit} className="p-4 max-w-lg mx-auto bg-white shadow-md rounded-md">
+        <input className="input input-bordered w-full mt-2" name="name" placeholder="Contest Name" onChange={handleChange} />
+        <input className="input input-bordered w-full mt-2" name="image" placeholder="Image URL" onChange={handleChange} />
+        <textarea className="textarea textarea-bordered w-full mt-1" name="description" placeholder="Description" onChange={handleChange} />
+        <input className="input input-bordered w-full mt-2" name="price" placeholder="Contest Price" onChange={handleChange} />
+        <input className="input input-bordered w-full mt-2" name="prizeMoney" placeholder="Prize Money" onChange={handleChange} />
+        <textarea className="textarea textarea-bordered w-full mt-2"name="taskSubmission" placeholder="Task Submission Instructions" onChange={handleChange} />
+        <select className="input input-bordered w-full mt-2" name="type" onChange={handleChange}>
+          <option value="">Select Type</option>
+          <option value="Image Design">Image Design</option>
+          <option value="Article Writing">Article Writing</option>
+          <option value="Marketing Strategy">Marketing Strategy</option>
+          <option value="Digital Advertisement">Digital Advertisement</option>
+          <option value="Gaming Review">Gaming Review</option>
+          <option value="Book Review">Book Review</option>
+          <option value="Business Idea">Business Idea</option>
+          <option value="Movie Review">Movie Review</option>
+        </select>
+        <DatePicker className="input input-bordered w-full mt-2" selected={contest.deadline} onChange={handleDateChange} />
+        <button type="submit" className="btn btn-primary w-full">Add Contest</button>
+      </form>
+    </div>
   );
 };
 
